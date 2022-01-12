@@ -1,0 +1,245 @@
+.grid{
+    display:grid;
+    background-color: rgb(238, 160, 160);
+    grid-template:
+        "header header header" 1fr
+        "nav main aside" 5fr
+        "footer footer footer" 1fr;
+}
+
+header {
+    grid-area: header;
+    color:red;
+    text-align: center;
+}
+
+.radio{
+    display: none;
+}
+
+label.label{
+    padding:10px 30px;
+    cursor: pointer;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.tab-label{
+    display: flex;
+}
+
+main{
+     grid-area: main;
+}
+
+.tabs{
+    margin-top: 30px;
+    margin-left:50px;
+}
+
+.radio#t1:checked ~ .tab-label > #l1,
+.radio#t2:checked ~ .tab-label > #l2,
+.radio#t3:checked ~ .tab-label > #l3,
+.radio#t4:checked ~ .tab-label > #l4 {
+    background-color:tomato
+}
+
+.content{
+    display: none;
+    border:solid 2px;
+    width:1050px;
+    height:500px;
+}
+
+#t1:checked ~ #content1,
+#t2:checked ~ #content2, 
+#t3:checked ~ #content3,
+#t4:checked ~ #content4 {
+    display: block;
+}
+
+.formArea{
+    display: flex;
+    margin-top: 40px;
+    margin-left: 100px;
+}
+
+#title{
+    margin-top: 10px;
+    margin-left: 10px;
+    width:300px;
+    height:40px;
+}
+
+.content #listTitle{
+    margin-top: 70px;
+    margin-left: 180px;
+}
+
+#dateCon{
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width:100px;
+    height:40px;
+    color: gray;
+}
+
+#addBtn{
+    position:relative;
+    float : right;
+    width:100px;
+    height:40px;
+    bottom: 50px;
+    right: 70px;
+    background-color: tomato;
+    border:solid 1px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+
+#fileArea{
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+table{
+    width: 420px;
+    height:300px;
+    margin-left: 20px;
+    font-size:20pt;
+    text-align: center;
+}
+
+#content2 .list{
+    display:flex;
+}
+
+#listTitle{
+    color : blue;
+}
+
+#content2 .timerImg{
+    position:relative;
+    width:50px; 
+    height:40px;
+    top: 57px;
+    left: 120px;
+    border-radius: 20%;
+}
+
+#content2 h2{
+    position:relative;
+    bottom: 50px;
+}
+
+#content2 .list{
+    position:relative;
+    bottom: 50px;
+}
+
+header{
+    display: flex;
+    margin-left:390px;
+}
+
+header img{
+    width:100px;
+    height:100px;
+    margin-top:30px;
+    margin-left:30px;
+    border-radius: 20%;
+}
+
+header h1{
+    margin-left:10px;
+    margin-top:30px;
+}
+
+table{
+    border:none;
+}
+
+#calendar {
+    height: 98%;
+    box-sizing: border-box;
+    padding: 0.5%;
+  }
+
+  .calendar {
+    display: inline-block;
+    box-sizing: border-box;
+    margin-top:5px;
+    padding: 20px;
+    border-radius: 3%;
+    width: 140px;
+    height: 70px;
+    cursor: pointer;
+  }
+
+  .header {
+    display: inline-block;
+    box-sizing: border-box;
+    padding:10px;
+    padding-bottom: 30px;
+    text-align: center;
+    border-radius: 3%;
+    width: 140px;
+    height: 30px;
+    margin-right:5px;
+    margin-bottom: 0.05px;
+    background-color:blueviolet;
+  }
+
+  #calendar{
+      margin-left: 12px;
+  }
+
+  #content3 h2{
+      display: inline;
+      margin-left: 470px;
+  }
+
+  .garo {
+    margin-right: 5px;
+  }
+
+  .sero {
+    margin-top: 5px;
+  }
+
+  #btn{
+    margin-left:200px;
+    background-color: blue;
+    color:white;
+    padding: 15px 30px;
+    font-weight: solid;
+    border-radius: 10px 10px 10px 10px;
+    cursor: pointer;
+}
+
+.weather{
+    position: relative;
+    top:40px;
+    left:35px;
+    cursor: pointer;
+    width:500px;
+    height:300px;
+}
+
+#weatherTitle{
+    margin-bottom: 0px;
+    margin-top:30px;
+    text-align: center;
+}
+
+#wm{
+    display: flex;
+}
+
+#wm2{
+    display: block;
+    margin-top:10px;
+}

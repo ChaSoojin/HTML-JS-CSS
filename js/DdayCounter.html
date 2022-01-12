@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="DdayCounter.css">
+    <title>D-dayCounter</title>
+</head>
+
+<body>
+    <div class="grid">
+        <header>
+            <img src="https://blog.kakaocdn.net/dn/bCPZFJ/btqQmO9FteV/1wdMV8wc76iMduMjtohBmk/img.png">
+            <h1>My D-Day Counter <br> Widget Diary</h1>
+        </header>
+
+        <main>
+            <div class="tabs">
+                <input type="radio" class="radio" id="t1" name="group" checked>
+                <input type="radio" class="radio" id="t2" name="group">
+                <input type="radio" class="radio" id="t3" name="group">
+                <input type="radio" class="radio" id="t4" name="group">
+
+                <section class="tab-label">
+                    <label class="label" id="l1" for="t1">+ 디데이 등록하기</label>
+                    <label class="label" id="l2" for="t2">디데이 목록보기</label>
+                    <label class="label" id="l3" for="t3">달력보기</label>
+                    <label class="label" id="l4" for="t4">날씨 및 지도보기</label>
+                </section>
+                
+                <section class="content" id="content1">
+                    <form class="ddayForm">
+                        <div class="formArea">
+                            <h4>기념일 제목 입력 : </h4><input type="text" id="title" required>
+                        </div>
+
+                        <div class="formArea">
+                            <h4>기념일 년(year) : </h4><input type="text" maxlength="4" value="년(4자)입력" id="dateCon" class="data1" onclick="deleteCon(value)" required>  
+                            <h4>기념일 월(mon) : </h4>
+                            <select id="dateCon" class="data3" required>
+                                <option>월</option>
+                                <option value="0">1</option>
+                                <option value="1">2</option>
+                                <option value="2">3</option>
+                                <option value="3">4</option>
+                                <option value="4">5</option>
+                                <option value="5">6</option>
+                                <option value="6">7</option>
+                                <option value="7">8</option>
+                                <option value="8">9</option>
+                                <option value="9">10</option>
+                                <option value="10">11</option>
+                                <option value="11">12</option>
+                            </select>
+                            <h4>기념일 일(day) : </h4><input type="text" maxlength="2" value="일 입력" id="dateCon" class="data2" onclick="deleteCon(value)" required>
+                        </div>
+                        
+                        <div class="formArea">
+                            <h4>기념일 종류 선택 : </h4>
+                            <select id="dateCon" class="ddayKinds">
+                                <option id="k0">없음</option>
+                                <option id="k1">시험</option>
+                                <option id="k2">생일</option>
+                                <option id="k3">커플기념일</option>
+                                <option id="k4">다이어트</option>
+                                <option id="k5">여행</option>
+                            </select>
+                            <h4>일정 알림시간: </h4>
+                            <input type="time" id="fileArea">
+                        </div>
+
+                        <div class="formArea">
+                            <h4>디데이 컬러 설정 : </h4> <input type="color" class="color" id="dateCon" value="#00CCCC"><br>
+                        </div>
+                        <input value="등록하기" id="addBtn" onclick="addDday()">
+                    </form>
+                </section>
+
+                <section class="content" id="content2">
+                    <img src="https://media.istockphoto.com/vectors/alarm-clock-icon-alarm-clock-that-sounds-loudly-in-the-morning-to-up-vector-id1194287819" class="timerImg">
+                    <h2 id="listTitle">D-day List</h2>
+                    <div class="list">
+                        <table style="border-style:solid">
+                            <tr>
+                                <td>DAYS</td>
+                                <td style="border-radius: 10px 10px 10px 10px; text-align: center;">내용</td>
+                            </tr>
+                        </table>
+                        <div class="imgArea"></div>
+                        <div class="conArea">
+                            <img>
+                            <input type="button" value="디데이 등록하러 가기" id="btn" onclick="move()">
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content" id="content3">
+                    <h2 id="monTitle">November</h2>
+                    <img src="https://cdn.crowdpic.net/list-thumb/thumb_l_B343183BA009CB7C60FE34E740BD33BF.png" style="width:300px; height:50px;">
+                    <div style="right: 60px; width: 450px; top: 232px; font-weight: bold; position: absolute; font-size:12px;">
+                        날짜를 클릭해 디데이를 등록해보세요!
+                    </div>
+                    <div id="calendar"></div>
+                </section>
+                
+                <section class="content" id="content4">
+                    <h2 id="weatherTitle">이번주 날씨 및 지도보기</h2>
+                    <div id="wm">
+                        <img src="img/날씨.png" class="weather" onclick="location.href='https://www.weather.go.kr/w/weather/forecast/short-term.do'">
+                        <div id="wm2">
+                        
+                        <!-- * 카카오맵 - 지도퍼가기 -->
+                        <!-- 1. 지도 노드 -->
+                        <div id="daumRoughmapContainer1638113797827" class="root_daum_roughmap root_daum_roughmap_landing" style="margin-left:35px;"></div>
+    
+                        <!--
+                            2. 설치 스크립트
+                            * 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
+                        -->
+                        <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+    
+                        <!-- 3. 실행 스크립트 -->
+                        <script charset="UTF-8">
+                            new daum.roughmap.Lander({
+                                "timestamp" : "1638113797827",
+                                "key" : "288qt",
+                                "mapWidth" : "500",
+                                "mapHeight" : "150"
+                            }).render();
+                        </script>
+
+
+                        <!-- * 카카오맵 - 지도퍼가기 -->
+                        <!-- 1. 지도 노드 -->
+                        <div id="daumRoughmapContainer1638116940172" class="root_daum_roughmap root_daum_roughmap_landing" style="margin-left:35px;"></div>
+
+                        <!--
+                            2. 설치 스크립트
+                            * 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
+                        -->
+                        <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+
+                        <!-- 3. 실행 스크립트 -->
+                        <script charset="UTF-8">
+                            new daum.roughmap.Lander({
+                                "timestamp" : "1638116940172",
+                                "key" : "288r2",
+                                "mapWidth" : "500",
+                                "mapHeight" : "150"
+                            }).render();
+                        </script>
+
+                        <p style="margin-left:130px;">>>날씨정보를 클릭하면 기상청 홈페이지로 이동합니다.</p>
+                        </div>
+                    </div>
+                </section>
+             </div>
+        </main>
+        <nav></nav>
+        <aside></aside>
+
+        <footer>
+            <div class="floor"></div>
+        </footer>
+    </div>
+
+    <script src="DdayCounter.js"></script>
+</body>
+
+</html>
